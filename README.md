@@ -30,3 +30,6 @@ Użytkownik może:
 | **Backend (API)** | Node.js + Express (port 3000) | Azure App Service (Web App) |
 | **Baza danych** | Emulator lokalny | Azure Cosmos DB (API for NoSQL) |
 | **Zarządzanie kodem i CI/CD** | Git / GitHub | GitHub Actions |
+## 🚦 Status Projektu
+* [x] **Artefakt 1:** Architektura i struktura folderów.
+* [x] **Artefakt 2:** Środowisko wielokontenerowe uruchomione lokalnie (Docker Compose).

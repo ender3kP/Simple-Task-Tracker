@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  database:
+    image: mongo:latest
+    container_name: task-tracker-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - dbdata:/data/db
+
+  backend:
+    image: node:20-alpine
+    container_name: task-tracker-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: sh -c "tail -f /dev/null" 
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+
+  frontend:
+    image: node:20-alpine
+    container_name: task-tracker-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "tail -f /dev/null"
+    ports:
+      - "5173:5173"
+
+volumes:
+  dbdata:
