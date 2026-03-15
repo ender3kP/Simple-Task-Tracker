@@ -10,14 +10,13 @@ services:
       - dbdata:/data/db
 
   backend:
-    image: node:20-alpine
+    build: ./backend
     container_name: task-tracker-backend
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-    command: sh -c "tail -f /dev/null" 
     ports:
-      - "3000:3000"
+      - "8081:8081"
+    environment:
+      - PORT=8081
+      - MONGO_URL=mongodb://database:27017/taskdb
     depends_on:
       - database
 

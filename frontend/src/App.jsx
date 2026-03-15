@@ -1,7 +1,7 @@
-import TasksPage from './pages/TasksPage';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  return <TasksPage />;
+  return <Dashboard />;
 }
 
 export default App;
