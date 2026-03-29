@@ -35,3 +35,4 @@ Użytkownik może:
 * [x] **Artefakt 2:** Środowisko wielokontenerowe uruchomione lokalnie (Docker Compose).
 * [x] **Artefakt 3:** Działająca warstwa prezentacji (React + Vite w Dockerze).
 * [x] **Artefakt 4:** Działająca warstwa logiki backendu (Node.js + połączenie z DB).
+* [x] **Artefakt 5:** Zastosowanie wzorca DTO, trwałość bazy danych (Volumes) i skrypty startowe.

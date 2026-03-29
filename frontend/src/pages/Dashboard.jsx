@@ -42,7 +42,7 @@ export default function Dashboard() {
 
       <ul>
         {tasks.map(task => (
-          <li key={task._id}>{task.title}</li>
+          <li key={task.id}>{task.title}</li>
         ))}
       </ul>
     </div>

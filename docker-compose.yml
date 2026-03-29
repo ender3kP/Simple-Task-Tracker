@@ -21,14 +21,12 @@ services:
       - database
 
   frontend:
-    image: node:20-alpine
+    build: ./frontend
     container_name: task-tracker-frontend
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    command: sh -c "tail -f /dev/null"
     ports:
-      - "5173:5173"
+      - "8080:80"
+    depends_on:
+      - backend
 
 volumes:
   dbdata:
