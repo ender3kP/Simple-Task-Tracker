@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/85a77b4d-6974-4893-a408-8c52f29200a9/resourceGroups/task-tracker-rg/providers/Microsoft.Web/sites/task-tracker-api-94675",
+    "appService.deploySubpath": "backend"
+}
