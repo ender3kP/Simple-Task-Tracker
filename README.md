@@ -36,3 +36,12 @@ Użytkownik może:
 * [x] **Artefakt 3:** Działająca warstwa prezentacji (React + Vite w Dockerze).
 * [x] **Artefakt 4:** Działająca warstwa logiki backendu (Node.js + połączenie z DB).
 * [x] **Artefakt 5:** Zastosowanie wzorca DTO, trwałość bazy danych (Volumes) i skrypty startowe.
+* [x] **Artefakt 6:** Wdrożenie aplikacji w chmurze Azure
+- [x] 6.1 Utworzenie i konfiguracja bazy danych Azure Cosmos DB (API for MongoDB) oraz zapory sieciowej.
+  - [x] 6.2 Aktualizacja konfiguracji połączenia i test lokalny z chmurą.
+  - [x] 6.3 Wdrożenie API do Azure App Service.
+  - [x] 6.4 Wdrożenie Frontendu i połączenie z chmurowym API.
+  ## 🌍 Środowisko Produkcyjne (Live)
+* **Frontend (Aplikacja Webowa):** [tasktrackerfront94675.z1.web.core.windows.net](https://tasktrackerfront94675.z1.web.core.windows.net/)
+* **Backend (Punkt końcowy API):** [task-tracker-api-94675...azurewebsites.net/api/tasks](https://task-tracker-api-94675-cgamhdbyaxd7e2aa.germanywestcentral-01.azurewebsites.net/api/tasks)
+*(Uwaga: Z powodu restrykcji regionalnych nałożonych na subskrypcję Azure for Students dotyczących usługi Static Web Apps, frontend został wdrożony z wykorzystaniem bezpiecznej alternatywy: Azure Storage Account)*
