@@ -28,8 +28,8 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Dashboard - Menedżer Zadań</h1>
-      {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
+      <h1>Dashboard Chmurowy - Menedżer Zadań</h1>
+      {error && <p style={{ color: 'green', fontWeight: 'bold' }}>{error}</p>}
       
       <div style={{ marginBottom: '20px' }}>
         <input 
