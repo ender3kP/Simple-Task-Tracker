@@ -14,6 +14,18 @@ export default function Dashboard() {
       .catch(err => setError("Błąd pobierania danych: " + err.message));
   };
 
+  const deleteTask = async (id) => {
+    try {
+        // Używamy Twojego skonfigurowanego 'api' do usunięcia
+        await api.delete(`/api/tasks/${id}`);
+        // Odświeżamy listę, żeby zadanie zniknęło z ekranu!
+        fetchTasks(); 
+    } catch (error) {
+        console.error("Błąd podczas usuwania:", error);
+        setError("Nie udało się usunąć zadania.");
+    }
+  };
+
   const addTask = () => {
     if (!newTaskTitle.trim()) {
       setError("Tytuł zadania nie może być pusty!");
@@ -29,7 +41,8 @@ export default function Dashboard() {
   return (
     <div style={{ padding: '20px' }}>
       <h1>Dashboard Chmurowy - Menedżer Zadań</h1>
-      {error && <p style={{ color: 'green', fontWeight: 'bold' }}>{error}</p>}
+      {/* Mała poprawka: zmieniłem kolor tekstu błędu na czerwony z zielonego */}
+      {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>} 
       
       <div style={{ marginBottom: '20px' }}>
         <input 
@@ -42,7 +55,13 @@ export default function Dashboard() {
 
       <ul>
         {tasks.map(task => (
-          <li key={task.id}>{task.title}</li>
+          <li key={task.id} style={{ marginBottom: '10px' }}>
+            {task.title}
+            {/* Przycisk usunięcia jest teraz wewnątrz listy i odnosi się do task.id */}
+            <button onClick={() => deleteTask(task.id)} style={{ marginLeft: '10px', backgroundColor: 'red', color: 'white' }}>
+                Usuń
+            </button>
+          </li>
         ))}
       </ul>
     </div>
