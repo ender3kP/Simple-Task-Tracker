@@ -41,6 +41,7 @@ Użytkownik może:
   - [x] 6.2 Aktualizacja konfiguracji połączenia i test lokalny z chmurą.
   - [x] 6.3 Wdrożenie API do Azure App Service.
   - [x] 6.4 Wdrożenie Frontendu i połączenie z chmurowym API.
+* [x] **Artefakt 7:** Wdrożenie Azure Key Vault i Tożsamości Zarządzanej (Managed Identity) – eliminacja twardych haseł z kodu.
   ## 🌍 Środowisko Produkcyjne (Live)
 * **Frontend (Aplikacja Webowa):** [tasktrackerfront94675.z1.web.core.windows.net](https://tasktrackerfront94675.z1.web.core.windows.net/)
 * **Backend (Punkt końcowy API):** [task-tracker-api-94675...azurewebsites.net/api/tasks](https://task-tracker-api-94675-cgamhdbyaxd7e2aa.germanywestcentral-01.azurewebsites.net/api/tasks)

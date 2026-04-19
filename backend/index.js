@@ -4,16 +4,41 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const taskController = require('./controllers/taskController');
 
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 8081;
-const DB_URL = process.env.MONGO_URL; 
 
-mongoose.connect(DB_URL)
-  .then(() => console.log('✅ Połączono z bazą MongoDB z kontenera!'))
-  .catch(err => console.error('❌ Błąd połączenia z bazą:', err));
+async function connectToDatabase() {
+  try {
+    const keyVaultName = process.env.KEY_VAULT_NAME;
+    
+    if (!keyVaultName) {
+      throw new Error("Brak zmiennej KEY_VAULT_NAME w pliku .env!");
+    }
+
+    const KVUri = "https://" + keyVaultName + ".vault.azure.net";
+    console.log("Pobieranie hasła z Key Vault: " + KVUri + " ...");
+
+    const credential = new DefaultAzureCredential();
+    const client = new SecretClient(KVUri, credential);
+    
+    const secret = await client.getSecret("DbConnectionString");
+    const dbUrl = secret.value;
+
+    await mongoose.connect(dbUrl);
+    console.log('✅ Połączono z bazą MongoDB przez Key Vault!');
+
+  } catch (err) {
+    console.error('❌ Błąd połączenia z bazą przez Key Vault:', err);
+  }
+}
+
+connectToDatabase();
 
 app.get('/api/tasks', taskController.getTasks);
 app.get('/api/tasks/:id', taskController.getTask);
